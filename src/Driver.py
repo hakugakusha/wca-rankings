@@ -1,23 +1,18 @@
 from main.view.Display import Display
+from main.controller.UserInputController import UserInputController
+from main.controller.DataController import DataController
 
-continent_url = 'https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/api/continents.json'
-country_url = 'https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/api/countries.json' 
 
 def launch():
     display = Display()
+    input_controller = UserInputController()
+    data_controller = DataController()
 
     display.startApp()
-    
-    user_Input = input("(y/n) ")
-    if (user_Input.lower() == 'y'):
 
-        display.getRegion(continent_url)
-        display.getRegion(country_url)
-        display.showRegions()
-    else: 
-        print("See you next time!")
-    
-    
+    input_controller.continueApp(display)
+    display.chooseRegion()
+    data_controller.region = input_controller.chooseRegion(display.regions)
 
 if __name__ == '__main__':
     launch()

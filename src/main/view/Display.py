@@ -4,6 +4,7 @@ class Display:
     def __init__(self):
         self.regions = []
         self.storeData = []
+        self.events = []
 
     def startApp(self):
         print("Hello! Welcome to WCA Rankings!")
@@ -20,9 +21,9 @@ class Display:
 
         if result.status_code == 200:
             result = result.json()
-            results_by_competition_and_event = result['items']
+            set_of_continents = result['items']
 
-            for entry in results_by_competition_and_event:
+            for entry in set_of_continents:
                 self.storeData.append(entry)
 
             for region in self.storeData:
@@ -34,6 +35,12 @@ class Display:
 
     def showRegions(self):
         print(self.regions)
+    
+    def chooseRegion(self):
+        print("Please choose a region to analyze: ")
+
+    def showEvents(self):
+        print(self.events)
 
 
 
