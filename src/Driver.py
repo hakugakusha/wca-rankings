@@ -4,15 +4,19 @@ from main.controller.DataController import DataController
 
 
 def launch():
-    display = Display()
     input_controller = UserInputController()
     data_controller = DataController()
+    display = Display(data_controller)
 
     display.startApp()
 
-    input_controller.continueApp(display)
+    input_controller.handleRegions(data_controller, display)
     display.chooseRegion()
-    data_controller.region = input_controller.chooseRegion(display.regions)
+    data_controller.region = input_controller.choose(data_controller.regions)
+
+    input_controller.handleEvents(data_controller, display)
+
+    data_controller.event = input_controller.choose(data_controller.events)
 
 if __name__ == '__main__':
     launch()
