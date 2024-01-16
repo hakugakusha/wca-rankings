@@ -11,14 +11,14 @@ class UserInputController:
         if (user_input.lower() == 'y'):
             data_controller.getRegion(continent_url)
             data_controller.getRegion(country_url)
-            display.showRegions(data_controller.regions)
+            display.showRegions()
         else:
             print("See you next time!")
             exit()
 
     def handleEvents(self, data_controller, display):
         data_controller.getEvents(events_url)
-        display.showEvents(data_controller.events)
+        display.showEvents()
         display.chooseEvent()
 
     def choose(self, list_of_param):

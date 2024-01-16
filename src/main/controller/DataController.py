@@ -1,12 +1,11 @@
 import requests
 
 class DataController:
-    def __init__(self, region=None, event=None):
+    def __init__(self, user, region=None, event=None):
         self.events = []
         self.regions = []
         self.storeData = []
-        self.region = region
-        self.event = event
+        self.user = user
 
     def getEvents(self, url):
         event_url = url.format()
