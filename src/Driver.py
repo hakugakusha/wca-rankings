@@ -7,10 +7,15 @@ def launch():
     display = Display()
 
     display.startApp()
+    
+    user_Input = input("(y/n) ")
+    if (user_Input.lower() == 'y'):
 
-    display.getRegion(continent_url)
-    display.getRegion(country_url)
-    display.showRegions()
+        display.getRegion(continent_url)
+        display.getRegion(country_url)
+        display.showRegions()
+    else: 
+        print("See you next time!")
     
     
 

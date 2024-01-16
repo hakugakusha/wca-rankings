@@ -8,6 +8,7 @@ class Display:
     def startApp(self):
         print("Hello! Welcome to WCA Rankings!")
         print("This is a joint-project by Brooklyn Schmidt and YuFeng Lin")
+        print("Would you like to see the list of available countries to choose from?")
 
     def getRegion(self, url):
 
