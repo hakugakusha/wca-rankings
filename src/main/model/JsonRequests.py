@@ -1,15 +1,16 @@
 import requests
 import concurrent.futures
+from datetime import datetime
 
 class GetRank:
 
-    def __init__(self, event:str = '333', region:str = 'north-america', time:int = 5) -> None:
+    def __init__(self, region:str = 'north-america', event:str = '333',  time:int = 5) -> None:
         """These variables will be sourced from user input"""
         self.region = region
         self.ranking_type = "average"
         self.event_type = event
         self.time_period = time
-        self.current_year = 2024
+        self.current_year = int(datetime.now().year)
         self.number_of_people_we_like_to_show = 500
 
     def get_init_rank(self) -> requests.Response:
@@ -110,5 +111,6 @@ class GetRank:
             print(f"{index + 1}. {name}, Average: {time}")
                 
 if __name__ == '__main__':
+    """Executes the file"""
     rank = GetRank()
     rank.print_result()
