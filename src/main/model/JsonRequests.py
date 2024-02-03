@@ -103,7 +103,7 @@ class GetRank:
 
     def print_result(self) -> None:
         # Prints out the results
-        print(f"Ranking for {self.event_type} in the past {self.time_period} years:")
+        print(f"Ranking for {self.event_type} in the past {self.time_period} years in {self.region}:")
         final_ranking = self.sort_competition_by_time()
         for index, (name,time) in enumerate(final_ranking.items()):
             if index == self.number_of_people_we_like_to_show:

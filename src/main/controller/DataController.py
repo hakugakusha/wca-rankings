@@ -1,9 +1,11 @@
 import requests
+import pycountry
 
 class DataController:
     def __init__(self, user, region=None, event=None):
         self.events = []
         self.regions = []
+        self.regions_in_alpha_2 = []
         self.storeData = []
         self.user = user
 
@@ -40,6 +42,13 @@ class DataController:
 
             for region in self.storeData:
                 current_name = region['name']
+                print(current_name)
+                try:
+                    country = pycountry.countries.get(name=current_name)
+                    if country:
+                        self.regions_in_alpha_2.append(country.alpha_2)
+                except Exception as e:
+                    print(f"cannot find {current_name} in alpha-2")
                 if (current_name[0:8] != "Multiple"):
                     self.regions.append(region['name'].lower())
 

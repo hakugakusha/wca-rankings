@@ -3,6 +3,7 @@ from main.controller.UserInputController import UserInputController
 from main.controller.DataController import DataController
 from main.model.User import User
 from main.model.JsonRequests import GetRank
+import pycountry
 
 
 
@@ -18,7 +19,8 @@ def launch():
     display.chooseRegion()
 
     # this line stores the user region
-    user.region = input_controller.choose(data_controller.regions)
+    region_name = input_controller.choose(data_controller.regions)
+    user.region = pycountry.countries.get(name=region_name).alpha_2
 
     input_controller.handleEvents(data_controller, display)
 
